@@ -1,0 +1,990 @@
+@media (max-width: 30rem) {
+    .hero-text {
+        font-size: 1.5rem;
+    }
+    nav ul li a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 48rem) {
+    nav ul {
+        flex-direction: column;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+/*Fuentes*/
+@font-face {
+    font-family: 'AcrossTheRoad';
+    src: url('fuente/Fonts/across\ the\ road.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cormorant';
+    src: url('fuente/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    max-width: 100%;
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales */
+    font-size: 16px; /* Base font size for rem calculations */
+}
+
+/* PreHeader */
+.preheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+    padding: 0.1875rem 0.5625rem; /* 3px 9px */
+    box-sizing: border-box;
+    position: relative;
+    flex-wrap: wrap; /* Asegura que los elementos se ajusten en pantallas pequeñas */
+}
+
+.social-media a {
+    margin-right: 0.1875rem; /* 3px */
+    text-decoration: none;
+}
+
+.social-media .icono {
+    width: 1.25rem; /* 20px */
+    height: 1.25rem; /* 20px */
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.short-phrases {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: #80c4ca;
+    font-style: italic;
+    white-space: nowrap;
+    z-index: 1; /* Asegura que el texto esté por encima de otros elementos */
+}
+
+#dynamic-phrase {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#dynamic-phrase.hidden {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+}
+
+.email-contact {
+    margin-left: auto;
+    text-align: right;
+}
+
+.email-contact a {
+    font-style: italic;
+    color: #80c4ca;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: font-size 0.3s, color 0.3s ease;
+}
+
+.email-contact a:hover {
+    font-size: 1.1rem;
+    color: #002e32;
+}
+
+/* Hover efecto para los íconos */
+.social-media .icono:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .preheader {
+        justify-content: center; /* Centra los elementos cuando la pantalla es más pequeña */
+        flex-direction: column; /* Cambia la dirección a columna para mejor organización */
+        text-align: center;
+        padding: 0.5rem; /* Aumenta el espacio de padding en pantallas pequeñas */
+    }
+
+    .social-media {
+        margin-bottom: 1rem; /* Añade espacio entre redes sociales y el texto */
+    }
+
+    .short-phrases {
+        position: static; /* Cambia la posición estática para evitar que se sobreponga */
+        transform: none; /* Restablece el desplazamiento */
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+
+    .email-contact {
+        margin-left: 0;
+        margin-top: 1rem; /* Da espacio entre el correo y el resto de elementos */
+    }
+
+    .email-contact a {
+        font-size: 1rem; /* Ajusta el tamaño del correo */
+    }
+
+    .social-media .icono {
+        width: 1rem; /* Reduce el tamaño de los íconos */
+        height: 1rem; /* Ajusta la altura de los íconos */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .preheader {
+        padding: 0.25rem; /* Reduce el padding */
+    }
+
+    .short-phrases {
+        font-size: 0.8rem; /* Ajusta aún más el tamaño del texto */
+    }
+
+    .email-contact a {
+        font-size: 0.9rem; /* Reduce aún más el tamaño del correo */
+    }
+}
+
+/*Header Section*/
+header {
+    position: relative;
+    display: flex;
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Espacia los elementos de nav */
+    background: #a4d3d7;
+    color: #fff;
+    padding: 1.25rem; /* 10px */
+    height: auto;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Permitir que los elementos salten a otra línea si es necesario */
+}
+
+header .logo {
+    position: absolute; /* Posición absoluta para centrar */
+    left: 50%; /* Mitad del contenedor */
+    transform: translateX(-50%); /* Centrado absoluto en X */
+    text-align: center;
+}
+
+header .logo h1 {
+    font-family: 'AcrossTheRoad', sans-serif;
+    font-weight: 100;
+    font-size: 3.125rem; /* 50px */
+    text-align: center;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end; /* Los enlaces se mantienen a la derecha */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 0.625rem; /* 10px */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Cormorant', sans-serif;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+nav ul li a:hover {
+    transform: scale(1.2);
+    font-size: 1.2rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Cambia la dirección a columna */
+        text-align: center;
+        padding: 2rem 1rem; /* Más espacio vertical */
+    }
+
+    header .logo {
+        position: relative; /* Cambia el logo al flujo normal */
+        left: auto;
+        transform: none; /* Elimina el centrado absoluto */
+        margin-bottom: 1rem; /* Espacio entre el logo y el menú */
+    }
+    
+    header .logo h1 {
+        font-size: 2rem; /* Reduce el tamaño del logo en pantallas pequeñas */
+    }
+
+    nav ul {
+        flex-direction: column; /* Cambia el menú a una disposición vertical */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Ajusta el margen */
+    }
+
+    nav ul li a {
+        font-size: 1rem; /* Tamaño más pequeño para los enlaces */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 1rem; /* Reduce el padding en pantallas muy pequeñas */
+    }
+
+    header .logo h1 {
+        font-size: 1.5rem; /* Reduce aún más el tamaño del logo */
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Ajusta el tamaño de los enlaces */
+    }
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Se asegura de que ocupe toda la altura de la ventana */
+    display: flex; /* Flexbox para organización */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    background-image: url('img/hero/imagenfondo.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center; /* Centra el texto */
+    padding: 2rem; /* Espaciado interno */
+    box-sizing: border-box;
+}
+
+.hero-text {
+    color: white;
+    font-size: 2rem;
+    font-family: 'Cormorant', sans-serif;
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.9); /* Sombra para mejor visibilidad */
+    margin-bottom: 2rem; /* Espacio entre el texto principal y el subtexto */
+    padding: 0 1rem; /* Asegura que el texto no toque los bordes */
+    width: 100%;
+    max-width: 62.5rem; /* 1000px */
+}
+
+.hero-subtext {
+    color: white;
+    font-size: 1rem;
+    font-family: 'Cormorant', sans-serif;
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.7); /* Sombra más suave */
+    padding: 0 1rem; /* Asegura que el texto no toque los bordes */
+    width: 100%;
+    max-width: 62.5rem; /* 1000px */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero {
+        min-height: auto; /* Permite que la altura se ajuste al contenido */
+        padding: 4rem 1rem; /* Espaciado interno */
+    }
+
+    .hero-text {
+        font-size: 1.5rem; /* Reduce tamaño de fuente del texto principal */
+        margin-bottom: 1.5rem; /* Ajusta espaciado */
+    }
+
+    .hero-subtext {
+        font-size: 0.875rem; /* Ajusta tamaño de fuente del subtexto */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 2rem 1rem; /* Espaciado reducido para móviles */
+    }
+
+    .hero-text {
+        font-size: 1.2rem; /* Más pequeño para móviles */
+        margin-bottom: 1rem; /* Ajusta el espacio */
+    }
+
+    .hero-subtext {
+        font-size: 0.75rem; /* Tamaño más pequeño */
+    }
+}
+
+/* Gallery */
+.gallery {
+    padding: 1rem;
+    text-align: center;
+}
+
+.gallery a {
+    font-size: 2.5rem;
+    font-family: 'Cormorant', sans-serif;
+    margin-bottom: 1.25rem; /* 20px */
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.art-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste automático con tamaño mínimo */
+    gap: 1rem; /* Espacio entre los elementos */
+}
+
+.art-item {
+    display: flex;
+    flex-direction: column; /* Asegura que el texto esté debajo de la imagen */
+    align-items: center;
+    overflow: hidden; /* Oculta el exceso de las imágenes */
+    background-color: #fff; /* Fondo gris claro */
+    text-align: center; /* Centra el texto */
+}
+
+.art-item a {
+    display: block;
+    width: 100%;
+    height: 450px; /* Aumenta la altura para que las imágenes sean más grandes */
+}
+
+.art-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta las imágenes para llenar la caja */
+    transition: transform 0.3s ease; /* Suaviza el zoom */
+}
+
+.art-item a:hover img {
+    transform: scale(1.1); /* Zoom al pasar el ratón */
+}
+
+.art-item p {
+    margin: 0.625rem 0; /* Espaciado entre la imagen y el texto */
+    font-size: 1.5rem;
+    font-family: 'Cormorant', sans-serif;
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .gallery a {
+        font-size: 2rem; /* Texto más pequeño */
+    }
+
+    .art-item a {
+        height: 400px; /* Ajusta la altura en dispositivos medianos */
+    }
+
+    .art-item p {
+        font-size: 1.25rem; /* Reduce el tamaño del texto */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery a {
+        font-size: 1.5rem; /* Texto más pequeño */
+        margin-bottom: 0.625rem;
+    }
+
+    .art-grid {
+        gap: 0.5rem; /* Reduce el espacio entre elementos */
+    }
+
+    .art-item a {
+        height: 350px; /* Ajusta la altura en móviles */
+    }
+
+    .art-item p {
+        font-size: 1rem; /* Texto más pequeño */
+    }
+}
+
+/* Collage */
+.collage {
+    position: relative;
+    width: 100%;
+    height: 18.75rem; /* 300px */
+    overflow: hidden;
+    background-color: #fff;
+    padding-bottom: 18.75rem; /* 300px */
+}
+
+/* Imagen de fondo */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.img-back {
+    width: 100%;
+    height: 21.875rem; /* 350px */
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+/* Contenedor de imágenes frontales */
+.foreground-images {
+    position: absolute;
+    bottom: 3.75rem; /* 60px */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1.25rem; /* 20px */
+    z-index: 2;
+}
+
+/* Estilo de las imágenes frontales */
+.img-front {
+    width: 15.625rem; /* 250px */
+    height: 21.875rem; /* 350px */
+    object-fit: cover;
+    border: 0.125rem solid white; /* 2px */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5); /* 0 4px 8px */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.img-front:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7); /* 0 8px 16px */
+}
+
+/* Media queries para dispositivos medianos */
+@media screen and (max-width: 768px) {
+    .collage {
+        height: 15rem; /* Ajustar la altura para pantallas medianas */
+        padding-bottom: 15rem;
+    }
+
+    .img-back {
+        height: 18.75rem; /* Reducir la altura de la imagen de fondo */
+    }
+
+    .foreground-images {
+        bottom: 2.5rem; /* Ajustar la posición de las imágenes frontales */
+        gap: 0.9375rem; /* 15px */
+    }
+
+    .img-front {
+        width: 12.5rem; /* Reducir el tamaño de las imágenes */
+        height: 17.5rem;
+    }
+}
+
+/* Media queries para dispositivos pequeños */
+@media screen and (max-width: 480px) {
+    .collage {
+        height: 12.5rem; /* Ajustar la altura para móviles */
+        padding-bottom: 12.5rem;
+    }
+
+    .img-back {
+        height: 15rem; /* Reducir más la altura de la imagen de fondo */
+    }
+
+    .foreground-images {
+        bottom: 1.25rem; /* Reducir más el espaciado inferior */
+        gap: 0.625rem; /* 10px */
+    }
+
+    .img-front {
+        width: 9.375rem; /* 150px */
+        height: 13.75rem; /* 220px */
+    }
+}
+
+/* About */
+.about {
+    background-color: #80c4ca;
+    padding-top: 1.25rem; /* 20px */
+    padding-bottom: 1.25rem; /* 20px */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.875rem; /* 30px */
+    max-width: 71.875rem; /* 1150px */
+    margin: 0 auto;
+    min-height: 25rem; /* 400px */
+    flex-wrap: wrap; /* Permitir que los elementos se reorganicen en pantallas pequeñas */
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 25rem; /* 400px */
+    border-radius: 0.3125rem; /* 5px */
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* 0 4px 6px */
+}
+
+.about-text {
+    flex: 1.3;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    font-family: 'Cormorant', sans-serif;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem; /* 20px */
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+
+.about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem; /* 20px */
+    font-family: 'Cormorant', sans-serif;
+}
+
+.about-button {
+    display: inline-block;
+    align-items: center;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    background-color: #ffffff;
+    color: #80c4ca;
+    text-decoration: none;
+    border: none;
+    border-radius: 100px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto; /* Permitir que se ajuste al contenido */
+    min-width: 6.25rem; /* 100px */
+}
+
+.about-button:hover {
+    background-color: #002e32;
+}
+
+/* Media queries para pantallas medianas (tablets) */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Coloca los elementos uno debajo del otro */
+        gap: 1.25rem; /* Reducir el espacio entre elementos */
+        min-height: auto; /* Quitar la altura mínima fija */
+    }
+
+    .about-image img {
+        max-width: 20rem; /* Reducir tamaño de la imagen */
+    }
+
+    .about-text h2 {
+        font-size: 2rem; /* Ajustar tamaño de la cabecera */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* Reducir el tamaño del texto */
+        line-height: 1.6; /* Ajustar el espaciado entre líneas */
+    }
+}
+
+/* Media queries para pantallas pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+    .about-container {
+        gap: 1rem; /* Reducir más el espacio entre elementos */
+    }
+
+    .about-image img {
+        max-width: 100%; /* Asegurar que la imagen no desborde */
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem; /* Reducir el tamaño del encabezado */
+    }
+
+    .about-text p {
+        font-size: 0.9rem; /* Reducir el texto */
+    }
+
+    .about-button {
+        font-size: 0.875rem; /* Reducir el tamaño del texto en el botón */
+        padding: 0.5rem 1rem; /* Ajustar el padding */
+    }
+}
+
+/* Space Section */
+.space {
+    padding: 0;
+    margin: 0;
+}
+
+.spaceimg {
+    width: 100%;
+    height: auto; /* Altura automática para que se ajuste al contenido */
+    overflow: hidden;
+    margin: 0; /* Elimina el margen que pueda estar causando el espacio */
+    padding: 0; /* Elimina cualquier padding que pueda causar el espacio */
+}
+
+.spaceimg img {
+    width: 100%;
+    height: auto; /* Cambia a automático para evitar desbordamientos */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Contenedor del Video */
+#fullscreen-video {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Altura completa de la pantalla */
+    overflow: hidden; /* Asegura que el video no se desborde */
+    margin: 0; /* Elimina márgenes adicionales */
+    padding: 0; /* Elimina padding innecesario */
+}
+
+/* Video en pantalla completa */
+#fullscreen-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el contenedor manteniendo la proporción */
+    z-index: -1; /* Asegura que el video esté detrás del texto */
+}
+
+/* Título sobre el video */
+.video-title {
+    position: absolute;
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste exacto del centro */
+    color: white;
+    font-size: 2rem;
+    font-family: 'Cormorant', sans-serif;
+    text-align: center;
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.7); /* Sombra para hacer el texto más legible */
+    padding: 1rem;
+    width: 80%; /* Ajusta el ancho si es necesario */
+    max-width: 40rem; /* Limita el ancho máximo del texto */
+}
+
+/* Media Queries para Responsividad */
+
+/* Pantallas medianas (tabletas y pantallas más pequeñas) */
+@media screen and (max-width: 768px) {
+    .video-title {
+        font-size: 1.5rem; /* Reduce el tamaño del texto */
+        width: 90%; /* Ajusta el tamaño del texto */
+    }
+}
+
+/* Pantallas pequeñas (teléfonos móviles) */
+@media screen and (max-width: 480px) {
+    .video-title {
+        font-size: 1.2rem; /* Reduce aún más el tamaño del texto */
+        width: 95%; /* Ajusta el tamaño del texto */
+    }
+}
+
+/* Inspiraciones por el mundo */
+.inspirations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #fff;
+    text-align: center;
+    min-height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.inspirations h2 {
+    font-size: 2em;
+    margin-bottom: 30px; /* Más espacio debajo */
+    color: #333;
+}
+
+.inspirations-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Mejor distribución */
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.article {
+    flex: 1 1 calc(30% - 20px); /* Mejor ajuste de ancho */
+    max-width: 30%; /* Tamaño máximo */
+    min-width: 250px; /* Evita que sea demasiado pequeña */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px; /* Esquinas más redondeadas */
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.article h3 {
+    font-size: 1.2em;
+    margin: 15px 0; /* Más espacio alrededor del título */
+    color: #333;
+}
+
+.article p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px; /* Espacio debajo de la imagen */
+}
+
+/* Media queries para dispositivos medianos (tablets) */
+@media screen and (max-width: 768px) {
+    .article {
+        flex: 1 1 calc(45% - 20px); /* Ajuste a dos artículos por fila */
+        max-width: 45%;
+    }
+
+    .article img {
+        max-height: 250px;
+    }
+
+    .inspirations h2 {
+        font-size: 1.8em;
+    }
+}
+
+/* Media queries para dispositivos pequeños (móviles) */
+@media screen and (max-width: 480px) {
+    .article {
+        flex: 1 1 100%; /* Un artículo por fila */
+        max-width: 100%;
+    }
+
+    .article img {
+        max-height: 200px;
+    }
+
+    .inspirations h2 {
+        font-size: 1.5em;
+    }
+}
+/* Contenedor de la sección de pedidos */
+.custom-orders-section {
+    background-color: #80c4ca;
+    max-height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 3% 0;
+}
+
+/* Contenedor de contenido */
+.content-wrapper {
+    display: flex;
+    max-width: 100%;
+    width: 90%;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste en pantallas más pequeñas */
+}
+
+/* Imagen personalizada */
+.custom-image {
+    width: 35%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto personalizado */
+.custom-text {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Título */
+.custom-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    font-family: 'Cormorant', sans-serif;
+}
+
+/* Párrafo */
+.custom-text p {
+    font-size: 1.5em;
+    line-height: 1.3;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Cormorant', sans-serif;
+}
+
+/* Media queries para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    .custom-image {
+        width: 50%; /* Ajusta el ancho de la imagen */
+    }
+    .custom-text {
+        width: 100%; /* El texto ocupa todo el ancho */
+        padding: 0 10px; /* Agrega un poco de espacio interno */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .custom-image {
+        width: 70%; /* Ajusta aún más el ancho en pantallas pequeñas */
+    }
+    .custom-text h2 {
+        font-size: 2em; /* Ajusta el tamaño del título */
+    }
+    .custom-text p {
+        font-size: 1.2em; /* Ajusta el tamaño del párrafo */
+    }
+}
+
+/* Contenedor de la sección de contacto */
+.contact {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+/* Estilización del formulario */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+form label {
+    margin: 10px 0 5px;
+    font-size: 1em;
+}
+
+/* Entradas y áreas de texto */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #333; /* Cambio de color de borde al enfocar */
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+}
+
+/* Botón de envío */
+form button {
+    padding: 10px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background: #555; /* Cambio de color de fondo al pasar el cursor */
+}
+
+form button:active {
+    transform: scale(0.95); /* Efecto de presionado */
+}
+
+/* Media queries para adaptabilidad */
+@media screen and (max-width: 768px) {
+    form {
+        width: 100%; /* Ajusta el ancho en dispositivos más pequeños */
+        padding: 10px;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    font-size: 1em;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil para separación */
+    transition: background-color 0.3s; /* Transición para efectos */
+}
+
+/* Estilo para enlaces dentro del footer */
+footer a {
+    color: #fff; /* Color por defecto */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+footer a:hover {
+    color: #80c4ca; /* Cambio de color en el hover */
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+/* Media query para asegurar que el footer se adapte en pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 15px; /* Más espacio en pantallas pequeñas */
+        font-size: 0.9em; /* Ajuste de tamaño de fuente */
+    }
+}

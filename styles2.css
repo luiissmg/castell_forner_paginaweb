@@ -1,0 +1,238 @@
+/* Reseteo básico de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Cormorant';
+    src: url('fuente/Cormorant/Cormorant-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Menú fijo en la parte superior */
+nav.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #80c4ca;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-start;
+    transition: height 0.3s ease;
+    height: 30px; /* Menú más reducido cuando está oculto parcialmente */
+}
+
+/* Enlaces del menú */
+nav.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    display: block;
+    transition: opacity 0.3s ease, padding 0.3s ease, transform 0.2s ease;
+}
+
+/* Menú desplegado completamente cuando el ratón pasa por encima */
+nav.menu:hover {
+    height: 80px; /* Aumenta la altura cuando se pasa el ratón */
+}
+
+nav.menu a:hover {
+    transform: scale(1.1); /* Escala el tamaño al 110% */
+}
+
+/* Menú parcialmente oculto */
+nav.menu a {
+    opacity: 0; /* Los enlaces están invisibles en el estado oculto */
+    padding-top: 0; /* Reduce el padding cuando está oculto */
+    padding-bottom: 0; /* Reduce el padding cuando está oculto */
+}
+
+/* Menú desplegado con enlaces visibles */
+nav.menu:hover a {
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Contenedor del submenu */
+.submenu-container {
+    position: relative; /* Necesario para posicionar el submenu */
+    display: inline-block; /* Mantiene el diseño en línea */
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Coloca el submenu justo debajo del enlace "Galería" */
+    left: 0;
+    background-color: #80c4ca;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 5%; /* Mejora la apariencia */
+}
+
+/* Enlaces del submenu */
+.submenu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    transition: background-color 0.3s ease;
+    font-size: 14px !important;
+}
+
+/* Cambiar el color del fondo al pasar por encima */
+.submenu a:hover {
+    background-color: #66a7ad;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+/* Mostrar el submenu al pasar el ratón por la sección */
+.submenu-container:hover .submenu {
+    display: block;
+    border-radius: 5%;
+}
+
+/* Ajustes para evitar solapamientos del menú fijo */
+nav.menu {
+    z-index: 1000;
+}
+
+/* Sección de inicio */
+#inicio {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    background-image: url('img/gallery/pinceles.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#inicio h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+#inicio p {
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* Sección de Galería */
+#galeria {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+    font-family: 'Cormorant', sans-serif;
+}
+
+#galeria h2 {
+    font-size: 2.3em;
+    margin-bottom: 30px;
+}
+
+/* Sub-secciones de la Galería */
+#galeria > div {
+    margin-bottom: 40px;
+}
+
+#galeria h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* Estilos de las imágenes en la galería */
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    padding: 0 20px; /* Espaciado opcional en los laterales */
+}
+
+.galeria-container img {
+    width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* Contact */
+.contact {
+    padding: 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+}
+
+/* Media query para responsividad */
+@media screen and (max-width: 768px) {
+    nav.menu {
+        height: 60px; /* Aumenta la altura del menú en pantallas más pequeñas */
+        flex-direction: column; /* Apila los elementos del menú verticalmente */
+    }
+
+    .galeria-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste en la galería */
+    }
+
+    footer {
+        font-size: 0.9em; /* Ajuste de la fuente */
+    }
+}
